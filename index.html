@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Work Anniversary Award</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        #trophy {
+            font-size: 100px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Work Anniversary Award</h1>
+    <p>Enter the date you started working:</p>
+    <input type="date" id="startDate">
+    <button onclick="generateAward()">Get Your Award</button>
+
+    <div id="awardMessage"></div>
+    <div id="trophy"></div>
+
+    <script>
+        function generateAward() {
+            const startDate = new Date(document.getElementById('startDate').value);
+            const currentDate = new Date();
+            const yearsWorked = currentDate.getFullYear() - startDate.getFullYear();
+            const awardMessage = document.getElementById('awardMessage');
+            const trophy = document.getElementById('trophy');
+            
+            if (yearsWorked > 0) {
+                awardMessage.innerHTML = `Congratulations! You have worked for ${yearsWorked} year(s).`;
+                trophy.innerHTML = '🏆';
+            } else {
+                awardMessage.innerHTML = 'Please enter a valid start date.';
+                trophy.innerHTML = '';
+            }
+        }
+    </script>
+</body>
+</html>
